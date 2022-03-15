@@ -1,6 +1,5 @@
 import os
 
-from wsgiref.simple_server import make_server
 from wsgi_static_middleware import StaticMiddleware
 
 from simba_framework.main import Framework
@@ -15,8 +14,3 @@ application = Framework(routes, front_controllers)
 app_static = StaticMiddleware(application,
                               static_root='staticfiles',
                               static_dirs=STATIC_DIRS)
-
-
-#with make_server('stepeight.herokuapp.com', 5000, app_static) as httpd:
-    #print("Запуск на порту 8080...")
-    #httpd.serve_forever()
